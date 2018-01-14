@@ -20,11 +20,24 @@ input should be set as the search term
 */
 
 //var queryUrl = "https://api.yelp.com/v3/businesses/search?term=events&location=rome&limit=5";
-var access_token = "4Gcp5w7HgWd4HIzEY0Mfb6VH9V5yjQK9euP2xTJhP5bsWVb8lSSx_gBkD39QAzNKzDYRD9zrcXWEJHwLfH08S9_71BpWtEWtWT0n036LPCIwk3qFa1Gzc_s59TRaWnYx";
+//var access_token = "4Gcp5w7HgWd4HIzEY0Mfb6VH9V5yjQK9euP2xTJhP5bsWVb8lSSx_gBkD39QAzNKzDYRD9zrcXWEJHwLfH08S9_71BpWtEWtWT0n036LPCIwk3qFa1Gzc_s59TRaWnYx";
 //onclick event for the submit button
 
 //ajax call
-$.ajax({
+
+const access_token = "4Gcp5w7HgWd4HIzEY0Mfb6VH9V5yjQK9euP2xTJhP5bsWVb8lSSx_gBkD39QAzNKzDYRD9zrcXWEJHwLfH08S9_71BpWtEWtWT0n036LPCIwk3qFa1Gzc_s59TRaWnYx";
+
+let myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer " + access_token);
+
+fetch("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=bars&limit=50&location=New York", {
+  headers: myHeaders 
+}).then((res) => {
+  return res.json();
+}).then((json) => {
+  console.log(json);
+});
+/*$.ajax({
 	url: "https://api.yelp.com/v3/businesses/search?term=events&location=rome&limit=5",
 	method:"GET",
 	dataType: "json",
@@ -37,4 +50,5 @@ $.ajax({
 }).done(function(response){
 	console.log(response);
 });
+*/
 
