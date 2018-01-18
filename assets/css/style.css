@@ -4,3 +4,12 @@
   .btn-primary {
   	padding: 20px 515px;
   }
+#dates {
+	display: block;
+}
+.food-info{
+	float: right;
+}
+.food-image {
+	float:left;
+}
