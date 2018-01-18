@@ -56,6 +56,7 @@ fetch(queryUrl, {
   console.log("Restaurant: " + restaurantName);
   console.log(restaurantImageUrl);
   console.log(restaurantLink);
+  console.log("blah");
   }
 });
 
