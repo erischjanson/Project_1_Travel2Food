@@ -32,14 +32,7 @@ var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date()
         $("#startDate").on("change", function (){
             console.log($("#startDate").val());
         })
-  /*
-
-As a first step, submit button should trigger the ajax call which will grab top five restaurants from yelp api. can use
-"sort_by" as a parameter: e.g.: best_match, rating, review_count or distance. By default it's best_match.
-input should be set as the search term
-
-
-*/
+  
 
 
 function cityListener(){
@@ -49,9 +42,6 @@ $(".cities").on("click", function(){
   $(".cities").not(this).attr("checked", false);
   //var userCity = $(this).val();
  //console.log(userCity);
-
-
-
 });
 }
 
@@ -59,13 +49,57 @@ cityListener();
 
 
 $(".checkPrice").on("click", function(){
+  var searchLocation = $("input[name='cities']:checked").val()
+
+  var originCity = $("#origin1").val();
+var destCity = searchLocation;
+console.log(destCity);
+var beginDate= $("#startDate").val();
+var endingDate= $("#endDate").val();
+var flightToken = "j6zsnkhds33fg325xmwfkckc";
+var flightSearch = "https://cors-anywhere.herokuapp.com/api.hotwire.com/v1/tripstarter/air?apikey=" + flightToken + "&origin=" + originCity + "&dest=" + destCity + "&startdate=" + beginDate + "&enddate=" + endingDate + "&format=json";
+
+
+  $.ajax({
+    url: flightSearch,
+    method: "GET"
+  })
+
+    .done(function(response) {
+      console.log(response)
+      //testing origin city
+      console.log("string", originCity);
+      
+
+     var printPrice = response.Result[0].AveragePrice;
+     console.log(printPrice);
+
+    });
   //empties previous search results
   $(".food-info").empty();
+  $(".wiki").empty();
 
-
-
+var wikiImageUrl;
 var searchLocation = $("input[name='cities']:checked").val();
-console.log(searchLocation);
+console.log("city: " + searchLocation);
+
+if(searchLocation==="paris"){
+  wikiImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Seine_and_Eiffel_Tower_from_Tour_Saint_Jacques_2013-08.JPG/1280px-Seine_and_Eiffel_Tower_from_Tour_Saint_Jacques_2013-08.JPG";
+  
+} else if(searchLocation==="london"){
+  wikiImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/London_Thames_Sunset_panorama_-_Feb_2008.jpg/300px-London_Thames_Sunset_panorama_-_Feb_2008.jpg";
+  
+} else if(searchLocation==="rome"){
+  wikiImageUrl = "https://upload.wikimedia.org/wikipedia/commons/d/d6/St_Peter%27s_Square%2C_Vatican_City_-_April_2007.jpg";
+  
+}
+
+console.log(wikiImageUrl);
+var upperCaseSearchLocation = $("<h1>").text(searchLocation.toUpperCase());
+console.log(upperCaseSearchLocation);
+var wikiImage = $("<img>").attr("src", wikiImageUrl);
+$(".wiki").prepend(upperCaseSearchLocation, wikiImage);
+
 var category = "rest";
 var queryUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=" + category + "&limit=5&location=" + searchLocation + "";
 //console.log(queryUrl);
@@ -104,48 +138,13 @@ fetch(queryUrl, {
   var restaurantImage=$("<img>").attr("src", restaurantImageUrl);
   var restaurantLink = json.businesses[i].url;
   $(".food-info").append(restaurantImage, restaurantText, priceText, ratingText);
- 
-
- 
 
   }
 
 });
+
 
 })
-/*$.ajax({
-  url: "https://api.yelp.com/v3/businesses/search?term=events&location=rome&limit=5",
-  method:"GET",
-  dataType: "json",
-  beforeSend: function(xhr){
-    xhr.setRequestHeader("Authorization", "BEARER" + access_token);
-  },
-  success: function(response){
 
-  }
-}).done(function(response){
-  console.log(response);
-});
-*/
-cityListener();
 
-var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-        $("#startDate").datepicker({
-            uiLibrary: 'bootstrap4',
-            iconsLibrary: 'fontawesome',
-            minDate: today,
-            maxDate: function () {
-                return $('#endDate').val();
-            }
-        });
-        $('#endDate').datepicker({
-            uiLibrary: 'bootstrap4',
-            iconsLibrary: 'fontawesome',
-            minDate: function () {
-                return $('#startDate').val();
-            }
-        });
-        $("#startDate").on("change", function (){
-            console.log($("#startDate").val());
-        })
 });
