@@ -15,71 +15,41 @@
 </head>
 
 <body>
- <div class="logo"> 
+ <div class="logo" style="background-color: #12d0fc; color: white;"> 
   <div class="row-logo">
   </div>
  <div class="container">
-<!--       <div class="cityButtons">
+      <div class="cityButtons">
           <button type="button" class="btn btn-primary">London</button>
            <button type="button" class="btn btn-primary">Paris</button>
             <button type="button" class="btn btn-primary">Rome</button>
-        </div> -->
-  <!--Radio group-->
-<div class="form-group">
-    <input name="cities" type="radio" class="with-gap cities" value="london" id="london">
-    <label for="london">London</label>
-</div>
-
-<div class="form-group">
-    <input name="cities" type="radio" class="with-gap cities" value="paris" id="paris" checked>
-    <label for="paris">Paris</label>
-</div>
-
-<div class="form-group">
-    <input name="cities" type="radio" class="with-gap cities" value="rome" id="rome">
-    <label for="rome">Rome</label>
-</div> 
-        <div class ="row">
-        <div class="col-md-3">
-          <h2>Travel Dates</h2>
         </div>
-        <div class="col-md-3">
-          <div class = "dates">
-              Departing: <input id="startDate" placeholder="mm/dd/yyyy" width="200" />
-        </div>
-      </div>
-        <div class="col-md-3">
-              Returning: <input id="endDate" placeholder="mm/dd/yyyy" width="200" />
-        </div>
-      </div>
-          <div class ="container-friends">
            <div class="form-group">
                   <label for="friend1">Friend 1</label>
                   <input type="text" class="form-control friend" id="friend1" placeholder="name">
-                  <label for="origin1">Flying From</label>
+                  <label for="origin1">Origin</label>
                   <input type="text" class="form-control origin" id="origin1" placeholder="city">
             </div>
            <div class="form-group">
                   <label for="friend2">Friend 2</label>
                   <input type="text" class="form-control friend" id="friend2" placeholder="name">
-                  <label for="origin2">Flying From</label>
+                  <label for="origin2">Origin</label>
                   <input type="text" class="form-control origin" id="origin2" placeholder="city">
           </div>
           <div class="form-group">
                   <label for="friend3">Friend 3</label>
                   <input type="text" class="form-control friend" id="friend3" placeholder="name">
-                  <label for="origin3">Flying From</label>
+                  <label for="origin3">Origin</label>
                   <input type="text" class="form-control origin" id="origin3" placeholder="city">
           </div>
            <div class="form-group">
                   <label for="friend4">Friend 4</label>
                   <input type="text" class="form-control friend" id="friend4" placeholder="name">
-                  <label for="origin4">Flying From</label>
+                  <label for="origin4">Origin</label>
                   <input type="text" class="form-control origin" id="origin4" placeholder="city">
            </div>
-         </div>
       <div class="search-button">
-          <a href="#" class="btn btn-primary-price checkPrice">Check Prices</a>
+          <a href="#" class="btn btn-primary-price checkPrice">Check $$$</a>
      </div>
 </div>
 </div>
@@ -95,6 +65,34 @@
 
       <div class="food-info"></div>
     </div>
+
+<!--             <div class="form-group">
+<!- Date Picker -->
+<!--     <div class="input-group date " id="startDate">
+        <input type='text' class="form-control" />
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span> 
+        </span>
+    </div> -->
+<!-- Time Picker
+    <div class="input-group date" id="startTime">
+            <input type='text' class="form-control" />
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+            </span>
+    </div>
+</div>  -->
+<div class="form-group">
+          <h2>Travel Dates</h2>
+          <div class = "dates">Departing:
+            <input id="startDate" placeholder="mm/dd/yyyy" width="200" />
+            <span class="input-group-addon">
+            </span>
+            Returning: 
+            <input id="endDate" placeholder="mm/dd/yyyy" width="200" />
+            </div>
+            <span class="input-group-addon">
+            </span>
 
   <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
 
