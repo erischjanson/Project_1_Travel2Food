@@ -1,26 +1,30 @@
-.logo{
+.logo-color{
 	background-color: #12d0fc;
-	background-image: url("../images/logo.png");
-	height: 900px;
+}
+.logo-image{
+	background-image: url("../images/logo.png"); 
 	background-repeat: no-repeat;
 	background-position: left-top;
+	height: 100%;
 }
 .row-logo {
 	height: 370px;
 }
-.container{
+.container-fluid{
 	background-color: #000;
     background-color: rgba(0,0,0,.75);
     color: #c7c7c7;
     box-shadow: 0 0 0.8823em 0 rgba(0,0,0,.5);
-    width: 1035px;
+    width: 1080px;
+    height: 430px;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
   .btn-primary-price {
   	padding: 15px 30px;
   	background-color: #e74c3c;
   	color: #c7c7c7;
-  	margin: 0 20px 20px 20px;
+  	margin: 20px 20px 20px 20px;
   }
 
 .food-info img{
@@ -31,7 +35,7 @@
 	margin-top: 10px;
 	padding: 20px;	
 }
-.col-md-3 {
+.col-sm-4 {
 	float: left;
 	margin-bottom: 10px;
 	margin-left: 0;
@@ -45,17 +49,24 @@
 .form-group {
 	float: left;
 	padding: 0px 20px 15px 20px;
-	margin-left: 10px;
+	margin: 20px 10px 0px 10px;
     background-color: rgba(97,97,97,0.54);
     color: #c7c7c7;
     border-radius: 5px;
 }
+.row-travel-dates{
+	margin-top: 10px;
+}
+.row-travel-dates, .row-friends, .row-search, .row-cities, .row-calendar{
+	float: left;
+}
+
 h2, .dates{
 	padding-left: 20px;
 }
 h2 {
 	margin-top: 20px;
-	font-size: 36px;
+	font-size: 30px;
 	color: #e74c3c;
 	margin-left: 15px;
 }
@@ -71,13 +82,13 @@ label{
 	margin-left: 10px;
 	margin-top: 10px;
 }
-#startDate.form-control, #endDate.form-control {
+/*#startDate.form-control, #endDate.form-control {
 	height: 36px;
 	width: 175px;
 }
 .gj-datepicker-bootstrap span[role=right-icon] .input-group-text{
  	padding-top: 8px;
- }
+ }*/
  .food-info{
  	background-color: #e74c3c;
     color: #c7c7c7;
@@ -101,11 +112,11 @@ label{
   }
 @media only screen and (max-width: 800px){
     [class*="col-"]{
-         width: 25.33%;
+  s       width: 25.33%;
          margin: 0;}
    .col-sm-2 {width: 30.66%;}
    .col-sm-3 {width: 45%;}
-   .col-md-6{width: 100%;}
+   .col-sm-6{width: 100%;}
     }
 
 }
@@ -114,7 +125,7 @@ label{
          width: 25.33%;}
    .col-sm-2 {width: 30.66%;}
    .col-sm-3 {width: 45%;}
-   .col-md-6{width: 100%;}
+   .col-sm-6{width: 100%;}
     }
 }
 @media screen and (max-width: 560px) {
