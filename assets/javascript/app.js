@@ -55,9 +55,7 @@ $(".checkPrice").on("click", function(){
     
     var originCityOne = $("#origin1").val();
     var originCityTwo = $("#origin2").val();
-    var originCityThree = $("#origin3").val();
-    var originCityFour = $("#origin4").val();
-
+    
 
     var beginDate= $("#startDate").val();
     var endingDate= $("#endDate").val();
@@ -65,19 +63,15 @@ $(".checkPrice").on("click", function(){
     
     var flightSearchOne = "https://cors-anywhere.herokuapp.com/api.hotwire.com/v1/tripstarter/air?apikey=" + flightToken + "&origin=" + originCityOne + "&dest=" + destCity + "&startdate=" + beginDate + "&enddate=" + endingDate + "&format=json";
     var flightSearchTwo = "https://cors-anywhere.herokuapp.com/api.hotwire.com/v1/tripstarter/air?apikey=" + flightToken + "&origin=" + originCityTwo + "&dest=" + destCity + "&startdate=" + beginDate + "&enddate=" + endingDate + "&format=json";
-    var flightSearchThree = "https://cors-anywhere.herokuapp.com/api.hotwire.com/v1/tripstarter/air?apikey=" + flightToken + "&origin=" + originCityThree + "&dest=" + destCity + "&startdate=" + beginDate + "&enddate=" + endingDate + "&format=json";
-    var flightSearchFour = "https://cors-anywhere.herokuapp.com/api.hotwire.com/v1/tripstarter/air?apikey=" + flightToken + "&origin=" + originCityFour + "&dest=" + destCity + "&startdate=" + beginDate + "&enddate=" + endingDate + "&format=json";
+    
 
     var friendOne = $("#friend1").val();
     var friendTwo = $("#friend2").val()
-    var friendThree = $("#friend3").val()
-    var friendFour = $("#friend4").val()
+    
 
     var printNameOne = $("#appendNameOne").text(friendOne);
     var printNameTwo = $("#appendNameTwo").text(friendTwo);
-    var printNameThree = $("#appendNameThree").text(friendThree);
-    var printNameFour = $("#appendNameFour").text(friendFour);
-
+    
       $.ajax({
         url: flightSearchOne,
         method: "GET"
@@ -89,67 +83,29 @@ $(".checkPrice").on("click", function(){
      
         var printOne = $("#appendPriceOne").text(printPriceOne);
        
+        
 
-         
-        /*
-
-             for loop not working for some reason ... 
-             keeps saying can't ready property AveragePrice of undefined ?? 
-             for (var i = 0; i < 5; i++) {
-                var lowestPrice =  response.Result[i].AveragePrice;
-               printPrice.push(lowestPrice)
-             }
-        */
+             // for (var i = 0; i < 5; i++) {
+             //    var lowestPrice = response.Result[i].AveragePrice;
+             // }
+        
 
       });
 
       $.ajax({
         url: flightSearchTwo,
         method: "GET"
-      }).done(function(response) {
-          console.log(response)
+      }).done(function(responsetwo) {
+          console.log(responsetwo)
 
-        var printPriceTwo = response.Result[i].AveragePrice;
+        var printPriceTwo = responsetwo.Result[i].AveragePrice;
         console.log(printPriceTwo);
      
         var printTwo = $("#appendPriceTwo").text(printPriceTwo);
 
         });
 
-      $.ajax({
-        url: flightSearchThree,
-        method: "GET"
-      }).done(function(response) {
-          console.log(response)
-
-        var printPriceThree = response.Result[i].AveragePrice;
-        console.log(printPriceThree);
-     
-        var printThree = $("#appendPriceThree").text(printPriceThree);
-
-        });
-
-      $.ajax({
-        url: flightSearchFour,
-        method: "GET"
-      }).done(function(response) {
-          console.log(response)
-
-        var printPriceFour = response.Result[i].AveragePrice;
-        console.log(printPriceFour);
-     
-        var printFour = $("#appendPriceFour").text(printPriceFour);
-
-        });         
-
-      /* 
-
-      need to figure out a for loop maybe? because multiple AJAX calls are not working
-      they all work individually but only two will work at a time when all four are running.
       
-      you can't have two URL's in an AJAX call and putting four origin cities did not return anything either
-
-      */ 
 
   //empties previous search results
   $(".food-info").empty();
