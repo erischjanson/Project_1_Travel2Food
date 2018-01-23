@@ -18,96 +18,109 @@
 
 <body>
  <div class="logo-color"> 
-  <div class="logo-image">
-  <div class="row-logo">
-</div>
-<div class="container-fluid">
-  <div class="row-cities">
-<!--       <div class="cityButtons">
-          <button type="button" class="btn btn-primary">London</button>
-           <button type="button" class="btn btn-primary">Paris</button>
-            <button type="button" class="btn btn-primary">Rome</button>
-        </div> -->
-  <!--Radio group-->
-<div class="form-group">
-    <input name="cities" type="radio" class="with-gap cities" value="barcelona" id="barcelona">
-    <label for="barcelona">Barcelona</label>
-</div>
-<div class="form-group">
-    <input name="cities" type="radio" class="with-gap cities" value="paris" id="paris" checked>
-    <label for="paris">Paris</label>
-</div>
-<div class="form-group">
-    <input name="cities" type="radio" class="with-gap cities" value="rome" id="rome">
-    <label for="rome">Rome</label>
-  </div> 
-</div>
-  <br>
-  <br>
-  <br>
-<div class ="row-travel-dates">
-    <div class ="row-calendar">
-      <div class="col-sm-4">
-          <h2>Travel Dates</h2>
-      </div>
-      <div class="col-sm-4">
-        <div class = "dates">
-          Departing: <input id="startDate" placeholder="mm/dd/yyyy" width="200" />
-        </div>
-      </div>
-    <div class="col-sm-4">
-      <div class = "date-return">
-          Returning: <input id="endDate" placeholder="mm/dd/yyyy" width="200" />
-    </div>
+  <div class="col-sm-12 logo">
+      <div class="logo-image">
+        <div class="span12">
   </div>
-</div>
-</div>
-  <div class ="row-friends">
-          <div class ="container-friends">
-           <div class="form-group">
-                  <label for="friend1">Friend 1</label>
-                  <input type="text" class="form-control friend" id="friend1" placeholder="name">
-                  <label for="origin1">Flying From</label>
-                  <input type="text" class="form-control origin" id="origin1" placeholder="city">
+  <div class="col-sm-12">
+    <div class="col-sm-6">
+        <div class="container">
+          <div class="row-cities">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input name="cities" type="radio" class="with-gap cities" value="barcelona" id="barcelona">
+                <label for="barcelona">Barcelona</label>
+              </div>
+              <div class="form-group">
+                  <input name="cities" type="radio" class="with-gap cities" value="paris" id="paris" checked>
+                  <label for="paris">Paris</label>
+              </div>
+              <div class="form-group">
+                  <input name="cities" type="radio" class="with-gap cities" value="rome" id="rome">
+                  <label for="rome">Rome</label>
+              </div> 
             </div>
-           <div class="form-group">
-                  <label for="friend2">Friend 2</label>
-                  <input type="text" class="form-control friend" id="friend2" placeholder="name">
-                  <label for="origin2">Flying From</label>
-                  <input type="text" class="form-control origin" id="origin2" placeholder="city">
           </div>
-          
-           
-         </div>
-       </div>
-  <div class ="row-search">
-      <div class="search-button">
-          <a href="#" class="btn btn-primary-price checkPrice">Check Prices</a>
-     </div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="row-flight">
-            <p id="appendNameOne">Friend1</p>
-            <p id="appendNameTwo">Friend2</p>
-
-            <p id="appendPriceOne">Here</p>
-            <p id="appendPriceTwo">Here</p>
-           
-</div>
-
-<div class="row-wiki">
-    <div class="col-sm-6 wiki">
-       
+            <div class ="row-travel-dates">
+              <div class ="container-dates">
+                <div class="col-sm-12">
+                  <div class="col-sm-6">
+                    <div class = "dates">
+                      Returning: <input id="endDate" placeholder="mm/dd/yyyy" width="200" />
+                    </div>
+                  </div>
+                    <div class="col-sm-6">
+                      <div class = "dates">
+                      Departing: <input id="startDate" placeholder="mm/dd/yyyy" width="200" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class ="row-friends">
+              <div class="col-sm-12">
+                <div class ="container-friends">
+                  <div class="form-group">
+                    <label for="friend1">Friend 1</label>
+                    <input type="text" class="form-control friend" id="friend1" placeholder="name">
+                    <label for="origin1">Flying From</label>
+                    <input type="text" class="form-control origin" id="origin1" placeholder="city">
+                  </div>
+                  <div class="form-group">
+                    <label for="friend2">Friend 2</label>
+                    <input type="text" class="form-control friend" id="friend2" placeholder="name">
+                    <label for="origin2">Flying From</label>
+                    <input type="text" class="form-control origin" id="origin2" placeholder="city">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class ="row-search">
+              <div class="col-sm-12 button">
+                <div class="search-button">
+                  <a href="#" class="btn btn-primary-price checkPrice">Check Prices</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-   <div class="col-sm-6">
-          <h2>Places to Eat</h2>
-
-      <div class="food-info"></div>
+      </div>
     </div>
   </div>
+</div>
+<div class="container-wiki">
+  <div class="row-wiki">
+    <div class="col-sm-6 wiki">
+    </div>
+  </div>
+</div>
+<div class="container-food">
+  <h2>Places to Eat</h2>
+   <div class="col-sm-6 food">
+    <div class="card" style="width: 20rem;">
+            <div class="food-info"></div>
+    </div>
+</div>
+</div>
+
+
+  <div class="container-flight">
+    <div class="row-flight">
+      <div class="col-sm-6 flight">
+        <div class="col-sm-12 flight">
+          <div class="col-sm-6 nameone">
+              <p id="appendNameOne"></p>
+              <p id="appendPriceOne"></p>
+          </div>
+          <div class="col-sm-6 nametwo">   
+              <p id="appendNameTwo"></p>
+              <p id="appendPriceTwo"></p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
 
   <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
 

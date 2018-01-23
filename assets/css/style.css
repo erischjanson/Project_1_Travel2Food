@@ -6,67 +6,59 @@
 	background-repeat: no-repeat;
 	background-position: left-top;
 	height: 100%;
+	height: 800px;
 }
-.row-logo {
-	height: 370px;
+.col-sm-12{
+	padding: 0;
+	margin: 0;
 }
-.container-fluid{
-	background-color: #000;
-    background-color: rgba(0,0,0,.75);
+.container{
+    background-color: rgba(47,47,47,.9);
     color: #c7c7c7;
     box-shadow: 0 0 0.8823em 0 rgba(0,0,0,.5);
-    width: 1080px;
     height: 430px;
     border-radius: 5px;
-    margin-bottom: 20px;
-}
-  .btn-primary-price {
-  	padding: 15px 30px;
-  	background-color: #e74c3c;
-  	color: #c7c7c7;
-  	margin: 20px 20px 20px 20px;
-  }
-
-.food-info img{
- border: 5px solid black;
- width: 25%;
-}
-.cityButtons{
-	margin-top: 10px;
-	padding: 20px;	
-}
-.col-sm-4 {
-	float: left;
-	margin-bottom: 10px;
-	margin-left: 0;
-	padding-left: 0;
-}
-.btn-primary {
-	background-color: rgba(97,97,97,0.54);
-	border: 0;
-	padding: 10px 20px;
+    margin-top: 350px;
+    margin-right: 600px;
 }
 .form-group {
 	float: left;
-	padding: 0px 20px 15px 20px;
-	margin: 20px 10px 0px 10px;
+	padding: 5px 20px 15px 20px;
+	margin: 20px 10px 10px 10px;
     background-color: rgba(97,97,97,0.54);
     color: #c7c7c7;
     border-radius: 5px;
 }
-.row-travel-dates{
-	margin-top: 10px;
+.container-dates{
+	float: left;
+	margin-left: 15px;
 }
-.row-travel-dates, .row-friends, .row-search, .row-cities, .row-calendar{
+.col-sm-6{
+	float: right;
+	margin-bottom: 10px;
+	margin-left: 0;
+	padding-left: 0;
+}
+.col-sm-5{
+	float: left;
+	padding-right: 10px;
+}
+.row-calendar, .row-search{
 	float: left;
 }
-
+.btn-primary-price {
+  	padding: 10px 30px;
+  	background-color: #e74c3c;
+  	color: #c7c7c7;
+  	margin: 20px 20px 20px 10px;
+  }
 h2, .dates{
-	padding-left: 20px;
+	margin-left: 25px;
+	float: left;
 }
 h2 {
 	margin-top: 20px;
-	font-size: 30px;
+	font-size: 20px;
 	color: #e74c3c;
 	margin-left: 15px;
 }
@@ -78,19 +70,56 @@ label{
 	margin-bottom: 0;
 	margin-top: 10px;
 }
-.container-friends {
-	margin-left: 10px;
-	margin-top: 10px;
-}
-/*#startDate.form-control, #endDate.form-control {
+/*.startDate.form-control, #endDate.form-control {
 	height: 36px;
 	width: 175px;
 }
 .gj-datepicker-bootstrap span[role=right-icon] .input-group-text{
  	padding-top: 8px;
  }*/
- .food-info{
- 	background-color: #e74c3c;
+
+.wiki, .food-info{
+	overflow: hidden;
+	float: left;
+	padding: 10px;
+	border-radius: 5px;
+}
+.wiki img, .food-info img{
+    max-height: 100%;
+    max-width: 100%;
+    box-shadow: 0 0 0.8823em 0 rgba(0,0,0,.5);
+}
+.food-info img{
+ 	border: 5px solid black;
+}
+
+h1{
+	background-color: #e74c3c;
+	color: white;
+	text-align: center;
+}
+.nameone, .nametwo{
+	background-color: rgba(231,76,60,0.75);
+	text-align: center;
+	margin: 10px;
+}
+p.appendNameOne, p.appendNameTwo{
+	font-size: 30px;
+	color: white;
+}
+p.appendPriceTwo, p.appendPriceOne{
+	line-height: 0.8;
+	color: white;
+}
+.col-sm-6.flight{
+	float: left;
+}
+.col-sm-6.food{
+	float: right;
+}
+.card{
+	float: left;
+	background-color: #e74c3c;
     color: #c7c7c7;
 }
 /***************************** Adding media queries below ***************************************/
@@ -133,4 +162,4 @@ label{
    from {background-color: lightblue;}
    to { background:#0066ff;}
    
-}
+}*/

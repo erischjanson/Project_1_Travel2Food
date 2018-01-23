@@ -118,19 +118,20 @@ console.log("city: " + searchLocation);
 if(searchLocation==="paris"){
   wikiImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Seine_and_Eiffel_Tower_from_Tour_Saint_Jacques_2013-08.JPG/1280px-Seine_and_Eiffel_Tower_from_Tour_Saint_Jacques_2013-08.JPG";
   
-} else if(searchLocation==="london"){
-  wikiImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/London_Thames_Sunset_panorama_-_Feb_2008.jpg/300px-London_Thames_Sunset_panorama_-_Feb_2008.jpg";
+} else if(searchLocation==="barcelona"){
+  wikiImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/14-08-06-barcelona-RalfR-314.jpg/1024px-14-08-06-barcelona-RalfR-314.jpg";
   
 } else if(searchLocation==="rome"){
   wikiImageUrl = "https://upload.wikimedia.org/wikipedia/commons/d/d6/St_Peter%27s_Square%2C_Vatican_City_-_April_2007.jpg";
   
 }
 
-console.log(wikiImageUrl);
-var upperCaseSearchLocation = $("<h1>").text(searchLocation.toUpperCase());
+
 console.log(upperCaseSearchLocation);
 var wikiImage = $("<img>").attr("src", wikiImageUrl);
-$(".wiki").prepend(upperCaseSearchLocation, wikiImage);
+console.log(wikiImageUrl);
+var upperCaseSearchLocation = $("<h1>").text(searchLocation.toUpperCase());
+$(".wiki").prepend(wikiImage, upperCaseSearchLocation);
 
 var category = "rest";
 var queryUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=" + category + "&limit=5&location=" + searchLocation + "";
