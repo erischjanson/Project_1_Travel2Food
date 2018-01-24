@@ -17,14 +17,38 @@ database.ref().on("value", function(snapshot){
   console.log(snapshot);
   console.log(snapshot.val());
   console.log(snapshot.val().beginDate);
+  var beginDate = snapshot.val().beginDate;
+  var beginDateText=$("<p>").text("Departing: " + beginDate);
   console.log(snapshot.val().endingDate);
+  var endingDate=snapshot.val().endingDate;
+  console.log(endingDate);
+  var endingDateText=$("<p>").text("Returning: " + endingDate);
   console.log(snapshot.val().destCity);
+  var destCity=snapshot.val().destCity;
+  var destCityText=$("<p>").text("Destination: " + destCity);
   console.log(snapshot.val().originCityOne);
-  console.log(snapshot.val().originCityTwo);
+  var originCityOne=snapshot.val().originCityOne;
+  var originCityOneText=$("<p>").text("Leaving from: " + originCityOne);
+
+  
   console.log(snapshot.val().friendOne);
   var friendOne = snapshot.val().friendOne;
+  var friendOneText = $("<h4>").text("Friend 1: " + friendOne);
   console.log(friendOne);
   console.log(snapshot.val().friendTwo);
+  //var helpDiv =$("<div class='help'>");
+  var friendTwo=snapshot.val().friendTwo;
+  console.log(friendTwo);
+  var friendTwoText=$("<h4>").text("Friend 2: " + friendTwo);
+  console.log(snapshot.val().originCityTwo);
+
+  var originCityTwo=snapshot.val().originCityTwo;
+  console.log(originCityTwo);
+  var originCityTwoText=$("<p>").text("Leaving from: " + originCityTwo);
+  $(".search-values").empty();
+
+  $(".search-values").append(beginDateText, endingDateText, friendOneText, originCityTwoText, friendTwoText, originCityOneText);
+  
 
 })
 
@@ -73,7 +97,7 @@ $(".checkPrice").on("click", function(){
     var destCity = searchLocation;
     console.log(destCity);
     
-    var originCityOne = $("#origin1").val();
+    var originCityOne = $("#origin1").val().trim();
     var originCityTwo = $("#origin2").val();
     
 
