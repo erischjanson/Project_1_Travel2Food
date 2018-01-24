@@ -12,6 +12,24 @@ var config = {
 
 var database = firebase.database();
 
+//bringing back firebase values into the browser
+database.ref().on("value", function(snapshot){
+  console.log(snapshot);
+  console.log(snapshot.val());
+  console.log(snapshot.val().beginDate);
+  console.log(snapshot.val().endingDate);
+  console.log(snapshot.val().destCity);
+  console.log(snapshot.val().originCityOne);
+  console.log(snapshot.val().originCityTwo);
+  console.log(snapshot.val().friendOne);
+  var friendOne = snapshot.val().friendOne;
+  console.log(friendOne);
+  console.log(snapshot.val().friendTwo);
+
+})
+
+
+
 //calendar
 
 var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
@@ -68,7 +86,18 @@ $(".checkPrice").on("click", function(){
     
 
     var friendOne = $("#friend1").val();
-    var friendTwo = $("#friend2").val()
+    var friendTwo = $("#friend2").val();
+
+    //saving variable values to firebase 
+    database.ref().set({
+      originCityOne: originCityOne,
+      originCityTwo: originCityTwo,
+      destCity: destCity,
+      beginDate: beginDate,
+      endingDate: endingDate,
+      friendOne: friendOne,
+      friendTwo: friendTwo
+    });
     
 
     var printNameOne = $(".appendNameOne").text(friendOne);
