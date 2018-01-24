@@ -14,39 +14,29 @@ var database = firebase.database();
 
 //bringing back firebase values into the browser
 database.ref().on("value", function(snapshot){
-  console.log(snapshot);
-  console.log(snapshot.val());
-  console.log(snapshot.val().beginDate);
+
   var beginDate = snapshot.val().beginDate;
   var beginDateText=$("<p>").text("Departing: " + beginDate);
-  console.log(snapshot.val().endingDate);
+ 
   var endingDate=snapshot.val().endingDate;
-  console.log(endingDate);
   var endingDateText=$("<p>").text("Returning: " + endingDate);
-  console.log(snapshot.val().destCity);
+
   var destCity=snapshot.val().destCity;
   var destCityText=$("<p>").text("Destination: " + destCity);
-  console.log(snapshot.val().originCityOne);
-  var originCityOne=snapshot.val().originCityOne;
-  var originCityOneText=$("<p>").text("Leaving from: " + originCityOne);
-
   
-  console.log(snapshot.val().friendOne);
+  var originCityOne=snapshot.val().originCityOne;
+  var originCityOneText=$("<p>").text("Leaving from: " + originCityOne);  
+
   var friendOne = snapshot.val().friendOne;
   var friendOneText = $("<h4>").text("Friend 1: " + friendOne);
-  console.log(friendOne);
-  console.log(snapshot.val().friendTwo);
-  //var helpDiv =$("<div class='help'>");
-  var friendTwo=snapshot.val().friendTwo;
-  console.log(friendTwo);
+
+  var friendTwo=snapshot.val().friendTwo; 
   var friendTwoText=$("<h4>").text("Friend 2: " + friendTwo);
-  console.log(snapshot.val().originCityTwo);
 
-  var originCityTwo=snapshot.val().originCityTwo;
-  console.log(originCityTwo);
+  var originCityTwo=snapshot.val().originCityTwo; 
   var originCityTwoText=$("<p>").text("Leaving from: " + originCityTwo);
-  $(".search-values").empty();
 
+  $(".search-values").empty();
   $(".search-values").append(beginDateText, endingDateText, friendOneText, originCityTwoText, friendTwoText, originCityOneText);
   
 
@@ -83,8 +73,6 @@ function cityListener(){
 $(".cities").on("click", function(){
   $(this).attr("checked", true);
   $(".cities").not(this).attr("checked", false);
-  //var userCity = $(this).val();
- //console.log(userCity);
 });
 }
 
@@ -94,21 +82,19 @@ cityListener();
 $(".checkPrice").on("click", function(){
     $(".hide").css("visibility", "visible");
     var searchLocation = $("input[name='cities']:checked").val()
-    var destCity = searchLocation;
-    console.log(destCity);
+    var destCity = searchLocation;    
     
     var originCityOne = $("#origin1").val().trim();
     var originCityTwo = $("#origin2").val();
     
-
     var beginDate= $("#startDate").val();
     var endingDate= $("#endDate").val();
+
     var flightToken = "j6zsnkhds33fg325xmwfkckc";
     
     var flightSearchOne = "https://cors-anywhere.herokuapp.com/api.hotwire.com/v1/tripstarter/air?apikey=" + flightToken + "&origin=" + originCityOne + "&dest=" + destCity + "&startdate=" + beginDate + "&enddate=" + endingDate + "&format=json";
     var flightSearchTwo = "https://cors-anywhere.herokuapp.com/api.hotwire.com/v1/tripstarter/air?apikey=" + flightToken + "&origin=" + originCityTwo + "&dest=" + destCity + "&startdate=" + beginDate + "&enddate=" + endingDate + "&format=json";
     
-
     var friendOne = $("#friend1").val();
     var friendTwo = $("#friend2").val();
 
@@ -131,10 +117,9 @@ $(".checkPrice").on("click", function(){
         url: flightSearchOne,
         method: "GET"
       }).done(function(response) {
-          console.log(response)
+          
 
-        var printPriceOne = response.Result[i].AveragePrice;
-        console.log(printPriceOne);
+        var printPriceOne = response.Result[i].AveragePrice;     
      
         var printOne = $(".appendPriceOne").text("Price: $" + printPriceOne + "0");
        
@@ -151,10 +136,9 @@ $(".checkPrice").on("click", function(){
         url: flightSearchTwo,
         method: "GET"
       }).done(function(responsetwo) {
-          console.log(responsetwo)
+        
 
-        var printPriceTwo = responsetwo.Result[i].AveragePrice;
-        console.log(printPriceTwo);
+        var printPriceTwo = responsetwo.Result[i].AveragePrice;        
      
         var printTwo = $(".appendPriceTwo").text("Price: $" + printPriceTwo + "0");
 
@@ -168,7 +152,7 @@ $(".checkPrice").on("click", function(){
 
 var wikiImageUrl;
 var searchLocation = $("input[name='cities']:checked").val();
-console.log("city: " + searchLocation);
+
 
 if(searchLocation==="paris"){
   wikiImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Seine_and_Eiffel_Tower_from_Tour_Saint_Jacques_2013-08.JPG/1280px-Seine_and_Eiffel_Tower_from_Tour_Saint_Jacques_2013-08.JPG";
@@ -181,16 +165,13 @@ if(searchLocation==="paris"){
   
 }
 
-
-console.log(upperCaseSearchLocation);
 var upperCaseSearchLocation = $("<h1>").text(searchLocation.toUpperCase());
 var wikiImage = $("<img>").attr("src", wikiImageUrl);
-console.log(wikiImageUrl);
+
 $(".wiki").prepend(upperCaseSearchLocation, wikiImage);
 
 var category = "rest";
 var queryUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=" + category + "&limit=5&location=" + searchLocation + "";
-//console.log(queryUrl);
 
 const access_token = "4Gcp5w7HgWd4HIzEY0Mfb6VH9V5yjQK9euP2xTJhP5bsWVb8lSSx_gBkD39QAzNKzDYRD9zrcXWEJHwLfH08S9_71BpWtEWtWT0n036LPCIwk3qFa1Gzc_s59TRaWnYx";
 
@@ -209,12 +190,10 @@ fetch(queryUrl, {
 
 
     //if (results[i].rating !== "r" && results[i].rating !== "pg-13")-use this if no rating, etc available
-  var foodDiv =$("<div class='food'>");
-  console.log(foodDiv);
-  var restaurantName = json.businesses[i].name;
-  console.log(restaurantName);
-  var restaurantText = $("<h3>").text(restaurantName);
-  console.log(restaurantText);
+  var foodDiv =$("<div class='food'>"); 
+
+  var restaurantName = json.businesses[i].name;  
+  var restaurantText = $("<h3>").text(restaurantName);  
 
   var price = json.businesses[i].price;
   var priceText=$("<p>").text("Price: " + price);
@@ -225,6 +204,7 @@ fetch(queryUrl, {
   var restaurantImageUrl = json.businesses[i].image_url;
   var restaurantImage=$("<img>").attr("src", restaurantImageUrl);
   var restaurantLink = json.businesses[i].url;
+  
   $(".food-info").append(restaurantImage, restaurantText, priceText, ratingText);
 
   }
