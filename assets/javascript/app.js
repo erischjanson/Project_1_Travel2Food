@@ -1,4 +1,5 @@
 $(document).ready(function(){
+$(".hide").css("visibility", "hidden");
 var config = {
    apiKey: "AIzaSyCV5hb3_Ky3kv8z_N0L63A4-fNMmJHKnNM",
    authDomain: "travel-fund.firebaseapp.com",
@@ -38,6 +39,7 @@ var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date()
 function cityListener(){
 
 $(".cities").on("click", function(){
+  $(".hide").css("visibility", "visible");
   $(this).attr("checked", true);
   $(".cities").not(this).attr("checked", false);
   //var userCity = $(this).val();
@@ -128,10 +130,10 @@ if(searchLocation==="paris"){
 
 
 console.log(upperCaseSearchLocation);
+var upperCaseSearchLocation = $("<h1>").text(searchLocation.toUpperCase());
 var wikiImage = $("<img>").attr("src", wikiImageUrl);
 console.log(wikiImageUrl);
-var upperCaseSearchLocation = $("<h1>").text(searchLocation.toUpperCase());
-$(".wiki").prepend(wikiImage, upperCaseSearchLocation);
+$(".wiki").prepend(upperCaseSearchLocation, wikiImage);
 
 var category = "rest";
 var queryUrl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=" + category + "&limit=5&location=" + searchLocation + "";
