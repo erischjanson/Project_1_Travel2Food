@@ -39,7 +39,6 @@ var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date()
 function cityListener(){
 
 $(".cities").on("click", function(){
-  $(".hide").css("visibility", "visible");
   $(this).attr("checked", true);
   $(".cities").not(this).attr("checked", false);
   //var userCity = $(this).val();
@@ -51,6 +50,7 @@ cityListener();
 
 
 $(".checkPrice").on("click", function(){
+    $(".hide").css("visibility", "visible");
     var searchLocation = $("input[name='cities']:checked").val()
     var destCity = searchLocation;
     console.log(destCity);
@@ -71,8 +71,8 @@ $(".checkPrice").on("click", function(){
     var friendTwo = $("#friend2").val()
     
 
-    var printNameOne = $("#appendNameOne").text(friendOne);
-    var printNameTwo = $("#appendNameTwo").text(friendTwo);
+    var printNameOne = $(".appendNameOne").text(friendOne);
+    var printNameTwo = $(".appendNameTwo").text(friendTwo);
     
       $.ajax({
         url: flightSearchOne,
@@ -83,7 +83,7 @@ $(".checkPrice").on("click", function(){
         var printPriceOne = response.Result[i].AveragePrice;
         console.log(printPriceOne);
      
-        var printOne = $("#appendPriceOne").text(printPriceOne);
+        var printOne = $(".appendPriceOne").text("Price: $" + printPriceOne + "0");
        
         
 
@@ -103,7 +103,7 @@ $(".checkPrice").on("click", function(){
         var printPriceTwo = responsetwo.Result[i].AveragePrice;
         console.log(printPriceTwo);
      
-        var printTwo = $("#appendPriceTwo").text(printPriceTwo);
+        var printTwo = $(".appendPriceTwo").text("Price: $" + printPriceTwo + "0");
 
         });
 
