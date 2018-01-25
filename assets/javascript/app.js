@@ -15,29 +15,30 @@ var database = firebase.database();
 //bringing back firebase values into the browser
 database.ref().on("value", function(snapshot){
 
-  var beginDate = snapshot.val().beginDate;
-  var beginDateText=$("<p>").text("Departing: " + beginDate);
- 
-  var endingDate=snapshot.val().endingDate;
-  var endingDateText=$("<p>").text("Returning: " + endingDate);
-
   var destCity=snapshot.val().destCity;
-  var destCityText=$("<p>").text("Destination: " + destCity);
-  
+  var destCityText=$("<h2>").text("Destination: " + destCity);
+
   var originCityOne=snapshot.val().originCityOne;
-  var originCityOneText=$("<p>").text("Leaving from: " + originCityOne);  
+  var originCityOneText=$("<h5>").text("Leaving from: " + originCityOne);  
 
   var friendOne = snapshot.val().friendOne;
-  var friendOneText = $("<h4>").text("Friend 1: " + friendOne);
+  var friendOneText = $("<h4>").text(friendOne);
+
 
   var friendTwo=snapshot.val().friendTwo; 
-  var friendTwoText=$("<h4>").text("Friend 2: " + friendTwo);
+  var friendTwoText=$("<h4>").text(friendTwo);
 
   var originCityTwo=snapshot.val().originCityTwo; 
-  var originCityTwoText=$("<p>").text("Leaving from: " + originCityTwo);
+  var originCityTwoText=$("<h5>").text("Leaving from: " + originCityTwo);
+
+  var beginDate = snapshot.val().beginDate;
+  var beginDateText=$("<h5>").text("Departing: " + beginDate);
+ 
+  var endingDate=snapshot.val().endingDate;
+  var endingDateText=$("<h5>").text("Returning: " + endingDate);
 
   $(".search-values").empty();
-  $(".search-values").append(beginDateText, endingDateText, friendOneText, originCityTwoText, friendTwoText, originCityOneText);
+  $(".search-values").append(destCityText, beginDateText, endingDateText, friendOneText, originCityTwoText, friendTwoText, originCityOneText);
   
 
 })
