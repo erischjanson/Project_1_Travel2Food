@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+  //update firebase settings
 $(".hide").css("visibility", "hidden");
 var config = {
    apiKey: "AIzaSyCV5hb3_Ky3kv8z_N0L63A4-fNMmJHKnNM",
