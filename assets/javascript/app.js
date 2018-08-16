@@ -122,7 +122,8 @@ $(".checkPrice").on("click", function(){
       }).done(function(response) {
           
 
-        var printPriceOne = response.Result[i].AveragePrice;     
+        var printPriceOne = response.Result[i].AveragePrice;   
+        console.log("ummmmmmmm");  
      
         var printOne = $(".appendPriceOne").text("Price: $" + printPriceOne + "0");
        
